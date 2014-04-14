@@ -12,3 +12,5 @@ target/
 .metadata 
 .classpath
 /.springBeans
+/target
+/target
