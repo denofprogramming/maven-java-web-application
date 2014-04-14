@@ -27,7 +27,17 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<outputDirectory>C:\software\tomcat_7\apache-tomcat-7.0.53\webapps</outputDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
 		</plugins>
+
 		<finalName>sampleWebApp</finalName>
 	</build>
 
