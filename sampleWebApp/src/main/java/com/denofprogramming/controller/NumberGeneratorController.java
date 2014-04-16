@@ -2,12 +2,18 @@ package com.denofprogramming.controller;
 
 import javax.inject.Inject;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//logger imports
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
+
+//spring imports
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+// denOfProgramming imports
 import com.denofprogramming.random.RandomGenerator;
 
 /**
@@ -29,10 +35,14 @@ import com.denofprogramming.random.RandomGenerator;
 public class NumberGeneratorController
 {
 	// using the slf4j api directly
-	private static final Logger logger = LoggerFactory.getLogger(NumberGeneratorController.class);
+	//private static final Logger logger = LoggerFactory.getLogger(NumberGeneratorController.class);
 	
-	// using the JCL binding provided by slf4j (NOT the Spring transient dependency on JCL, as that is excluded now in the maven pom)
-	//private Log log = LogFactory.getLog(NumberGeneratorController.class);
+	// using the log4j api, jar provided by our specific dependency
+	private static final Logger logger = Logger.getLogger("com.denofprogramming.controller.NumberGeneratorController");
+	
+	
+	// using the JCL api, jar provided by transient dependency via spring-core
+	private Log log = LogFactory.getLog(NumberGeneratorController.class);
 
     @Inject
     private RandomGenerator numberGenerator;
@@ -43,19 +53,15 @@ public class NumberGeneratorController
 	final String implName = numberGenerator.name();
 	final Integer number = numberGenerator.generate();
 
-	// Only provided as an example to show using slf4j-JCL binding and slf4j-api -> all going to log4j.
-	// You would only use the slf4j-api for new real world projects,
-	// but bindings are needed for backward compatibility for Spring dependency on JCL.
-	// slf4j uses log4j as an example but others can be used instead.
-	//log.debug("log.debug is using Class: " + log.getClass().getCanonicalName());	
-	logger.debug("logger.debug is using CLass: " + logger.getClass().getCanonicalName());
+	// Only provided as an example to show different logging dependencies included in our project.
+	// Better, is to use only one and its good practice to use slf4j.	
 	
-	//log.info("log.info is using Class: " + log.getClass().getCanonicalName());	
-	logger.info("logger.info is using CLass: " + logger.getClass().getCanonicalName());
-
-	//log.warn("log.warn is using Class: " + log.getClass().getCanonicalName());	
-	logger.warn("logger.warn is using CLass: " + logger.getClass().getCanonicalName());
-
+	//debug from JCL
+	log.debug("log.info is using Class: " + log.getClass().getCanonicalName());	
+	
+	//debug from log4j
+	logger.debug("logger.info is using CLass: " + logger.getClass().getCanonicalName());
+	
 	
 	model.addAttribute("implName", implName);
 	model.addAttribute("number", number);

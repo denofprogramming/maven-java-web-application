@@ -20,8 +20,7 @@ Also show cases the 'Simple Logging Framework - slf4j'.</description>
 
 	<properties>
 		<slf4jVersion>1.7.6</slf4jVersion>
-		<spring.version>4.0.3.RELEASE</spring.version>
-		<!-- <m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot> -->
+		<spring.version>4.0.3.RELEASE</spring.version>		
 	</properties>
 
 
@@ -46,22 +45,14 @@ Also show cases the 'Simple Logging Framework - slf4j'.</description>
 					<warName>mywebapp</warName>
 				</configuration>
 			</plugin>
-		</plugins>
-
-		<!-- <finalName>sampleWebApp</finalName> -->
+		</plugins>	
 	</build>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>commons-logging</artifactId>
-					<groupId>commons-logging</groupId>
-				</exclusion>
-			</exclusions>
+			<version>${spring.version}</version>			
 		</dependency>
 
 		<dependency>
@@ -89,37 +80,12 @@ Also show cases the 'Simple Logging Framework - slf4j'.</description>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
-
-		<!-- Logging dependencies -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4jVersion}</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<!--Binding for commons logging over slf4j -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${slf4jVersion}</version>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!--Binding for log4j version 1.2.x You also need to place log4j.jar on 
-			your class path. -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4jVersion}</version>
-			<scope>runtime</scope>
-		</dependency>
+		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
-			<scope>runtime</scope>
+			<scope>compile</scope>
 		</dependency>
 
 		<!-- Unit Test dependencies -->
