@@ -7,12 +7,21 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>Number Generator WebApp</name>
-
 	<url>http://denofprogramming.com</url>
 
+	<organization>
+		<name>denOfProgramming</name>
+		<url>www.denofprogramming.com</url>
+	</organization>
+	<description>Simple web application to show the Maven build tool in action.
+Also show cases the 'Simple Logging Framework - slf4j'.</description>
+
+
+
 	<properties>
+		<slf4jVersion>1.7.6</slf4jVersion>
 		<spring.version>4.0.3.RELEASE</spring.version>
-		<!--  <m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot> -->
+		<!-- <m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot> -->
 	</properties>
 
 
@@ -32,9 +41,9 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.4</version>
-				<configuration>					
+				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					  <warName>mywebapp</warName>
+					<warName>mywebapp</warName>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -47,6 +56,12 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -54,7 +69,7 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-math3</artifactId>
@@ -75,6 +90,39 @@
 			<version>1.2</version>
 		</dependency>
 
+
+		<!-- Logging dependencies -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4jVersion}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!--Binding for commons logging over slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4jVersion}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!--Binding for log4j version 1.2.x You also need to place log4j.jar on 
+			your class path. -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4jVersion}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Unit Test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -82,5 +130,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
 
 </project>
