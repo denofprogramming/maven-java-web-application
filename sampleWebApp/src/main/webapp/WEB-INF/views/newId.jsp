@@ -7,7 +7,7 @@
 <title>Spring4 MVC -Number Generator</title>
 </head>
 <body>
-<h1>Your new number is: ${number}</h1>
-<h2>It was brought to you using the: "${implName}"</h2>	
+<h1>Your new Identifier is: ${id}</h1>
+<h2>It was brought to you using the: "${creator}"</h2>	
 </body>
 </html>

@@ -3,15 +3,16 @@
  */
 package com.denofprogramming.random;
 
+
 /**
- * @author TT
- * 
+ * @author denOfProgramming
+ *
  */
 public interface RandomGenerator
 {
 
     String name();
 
-    int generate();
+    GeneratedRandomIdentifier generate();
 
 }

@@ -17,10 +17,8 @@
 Also show cases the 'Simple Logging Framework - slf4j'.</description>
 
 
-
 	<properties>
-		<slf4jVersion>1.7.6</slf4jVersion>
-		<spring.version>4.0.3.RELEASE</spring.version>		
+		<spring.version>4.0.3.RELEASE</spring.version>	
 	</properties>
 
 
@@ -41,11 +39,15 @@ Also show cases the 'Simple Logging Framework - slf4j'.</description>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.4</version>
 				<configuration>
+					<!-- We need this for a Servlet 3.0 environment, no web.xml anymore! -->
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<!-- first priority for the WAR name -->
 					<warName>mywebapp</warName>
 				</configuration>
 			</plugin>
-		</plugins>	
+		</plugins>
+		<!-- shown as an example, second priority for the WAR name -->
+		<finalName>mywebappNameSecondOption</finalName>
 	</build>
 
 	<dependencies>
@@ -80,7 +82,9 @@ Also show cases the 'Simple Logging Framework - slf4j'.</description>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
+		<!-- Logging dependencies -->
+
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
