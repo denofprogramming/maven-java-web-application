@@ -21,7 +21,7 @@ public class DefaultRandomNumberGenerator implements RandomGenerator {
 	
 	protected int generateNumber() {
 		final RandomDataGenerator aRandomDataGenerator = new RandomDataGenerator();
-		return aRandomDataGenerator.nextInt(0, 5);			
+		return aRandomDataGenerator.nextInt(5, 10);			
 	}
 	
 	public String name() {
