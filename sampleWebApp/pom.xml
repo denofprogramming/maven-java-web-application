@@ -96,7 +96,7 @@ Also show cases the 'Simple Logging Framework - slf4j'.</description>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.13.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
