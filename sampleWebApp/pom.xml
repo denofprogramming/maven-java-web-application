@@ -18,7 +18,7 @@ Also show cases the 'Simple Logging Framework - slf4j'.</description>
 
 
 	<properties>
-		<spring.version>4.0.3.RELEASE</spring.version>	
+		<spring.version>5.3.18</spring.version>	
 	</properties>
 
 
