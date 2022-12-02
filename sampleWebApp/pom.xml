@@ -99,6 +99,15 @@ Also show cases the 'Simple Logging Framework - slf4j'.</description>
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat -->
+		<dependency>
+		    <groupId>org.apache.tomcat</groupId>
+		    <artifactId>tomcat</artifactId>
+		    <version>10.1.1</version>
+		    <type>pom</type>
+		</dependency>
+
 	</dependencies>
 
 
